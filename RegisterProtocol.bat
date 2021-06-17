@@ -51,7 +51,7 @@
 @IF NOT EXIST "%~f2" (
 @ECHO "The specified protocol handler does not exist"
 @ECHO "Provided value:" %~f2
-@GOTO :eof
+@GOTO :EOF
 )
 
 :: Set %handler%
@@ -69,11 +69,11 @@
 @REG ADD HKCR\%protocol% /V "URL Protocol" %force%
 @REG ADD HKCR\%protocol%\shell\Open\Command %force%
 @REG ADD HKCR\%protocol%\shell\Open\Command /VE /D "\"%handler%\" \"%%1\"" %force%
-@GOTO :eof
+@GOTO :EOF
 
 :PrintUsage
 @ECHO "Usage: RegisterProtocol <protocol> <handler> [/F]"
 @ECHO "<protocol> - A valid protocol name"
 @ECHO "<handler> - A valid protocol handler, a path to an executable file"
 @ECHO "[/F] - The option '/F' suppresses any overwrite prompts"
-@GOTO :eof
+@GOTO :EOF
